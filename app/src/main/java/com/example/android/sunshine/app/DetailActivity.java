@@ -11,10 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ShareActionProvider;
 import android.widget.TextView;
-
+import android.support.v7.widget.ShareActionProvider;
 import java.util.zip.Inflater;
+import android.view.MenuInflater;
+
 
 public class DetailActivity extends ActionBarActivity {
 
@@ -82,14 +83,14 @@ public class DetailActivity extends ActionBarActivity {
             // The detail Activity called via intent.  Inspect the intent for forecast data.
             Intent intent = getActivity().getIntent();
             if (intent != null && intent.hasExtra(Intent.EXTRA_TEXT)) {
-                String mForecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
+                mForecastStr = intent.getStringExtra(Intent.EXTRA_TEXT);
                 ((TextView) rootView.findViewById(R.id.detail_text)).setText(mForecastStr);
             }
 
             return rootView;
         }
 
-        public void onCreateOptionsMenu(Menu menu, Inflater inflater){
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
 
             //Add items to the action bar
             inflater.inflate(R.menu.detailfragment, menu);
